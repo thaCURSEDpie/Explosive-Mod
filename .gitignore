@@ -1,0 +1,6 @@
+audio/
+bin/
+obj/
+*.csproj
+*.user
+*.cache

@@ -1,0 +1,58 @@
+
+    PIE LICENSE
+	Version 1, July 7, 2010
+	Copyright (C) 2010, thaCURSEDpie <thacursedpie (AT) gmail (DOT) com>
+	
+	Copying and distributing verbatim copies of this license document is
+  allowed, changing it is not.
+  
+    Preamble
+	
+    This license was created because I felt that the GPL license did not
+  fit my needs. It is too much focused on open-source, denying the fact that
+  the original creator should be able to benefit from his creation.
+  That is why I created the "Pie License". It allows modifications and
+  (re)distributions of works licensed under it, but does not out-right deny
+  usage of the works for commercial purposes. (one needs the written 
+  permission of the original creator).
+  
+    The actual reason I wrote this license was because I wanted to release
+  all of the sourcecodes of my GTA:IV mods to the public. Yet I didn't want
+  someone stealing my sourcecodes and somehow benefiting from it. I also
+  didn't feel like outright denying commercial use of my work. What if
+  Rockstar felt these mods were so awesome, they wanted to buy them? If so,
+  the people who worked on these mods should be rewarded, right?
+  
+  
+1.  License
+
+    You are allowed to (re)distribute works licensed under this license,
+  modify the works licensed under this license and (re)distribute these
+  modifications, subject to the following terms and conditions:
+
+  a) You must not misappropriate the origin of this software. You must not
+     claim you wrote the original software. 
+
+  b) If you are distributing a modified version of a work licensed under this
+     license, you must clearly state that it is a modified version.
+	 
+  c) If you distribute or modify a work licensed under this license, you must 
+     license the entire work, as a whole, under this license. 
+	 
+  d) You are not allowed to use works licensed under this license, or any
+     modifications of works which are licensed under this license, be it
+	 modifications made by you, or modifications made by someone else,
+	 for commercial purposes without the written permission of the person who
+	 wrote the original software. (NOT the person who made the modifications.
+	 Though this could be the same person. In that case, you need this person's
+	 written permission)
+	 
+2.  Warranty disclaimer
+
+    This software is provided "as is", without warranty of any kind, express or
+    implied, including but not limited to the warranties of merchantability,
+    fitness for a particular purpose and non-infringement. In no event shall the
+    authors or copyright holders be liable for any claim, damages or other
+    liability, whether in an action of contract, tort or otherwise, arising
+    from, out of or in connection with this software or the use or other
+    dealings in this software.
