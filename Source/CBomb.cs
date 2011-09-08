@@ -1,4 +1,22 @@
-﻿namespace Bombit.Source
+﻿//=======================================================================
+//
+// <copyright file="CBomb.cs" company="not applicable">
+//     Copyright (c) thaCURSEDpie. All rights reserved.
+// </copyright>
+//
+//-----------------------------------------------------------------------
+//          File:           CBomb.cs
+//          Version:        Pre-Alpha
+//          Part of:        Explosive mod
+//          Author:         thaCURSEDpie
+//          Date:           September 2011
+//          Description:
+//              This file contains the CBomb class,
+//              which describes a bomb.
+//
+//=======================================================================
+
+namespace Bombit.Source
 {
     using System;
     using System.Collections.Generic;

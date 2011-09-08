@@ -1,4 +1,22 @@
-﻿namespace Bombit.Source
+﻿//=======================================================================
+//
+// <copyright file="CRocket.cs" company="not applicable">
+//     Copyright (c) thaCURSEDpie. All rights reserved.
+// </copyright>
+//
+//-----------------------------------------------------------------------
+//          File:           CRocket.cs
+//          Version:        Pre-Alpha
+//          Part of:        Explosive mod
+//          Author:         thaCURSEDpie
+//          Date:           September 2011
+//          Description:
+//              This file contains the CRocket class,
+//              which represents a controllable rocket.
+//
+//=======================================================================
+
+namespace Bombit.Source
 {
     using System;
     using System.Collections.Generic;
@@ -10,7 +28,7 @@
     /// A class representing a rocket.
     /// </summary>
     public class CRocket
-	{
+    {
         /// <summary>
         /// The rocket's payload.
         /// </summary>
@@ -47,7 +65,8 @@
         /// <param name="rocketTickInterval">The rocket tick interval.</param>
         public CRocket(Vector3 startPos, Vector3 startDirection, EBombType bombType, EExplosionType exType, int bombTickInterval, int rocketTickInterval)
         {
-            this.bomb = new CBomb(startPos,
+            this.bomb = new CBomb(
+                                  startPos,
                                   "cj_rpg_rocket",
                                   bombType,
                                   exType,
@@ -125,7 +144,8 @@
            
             this.bomb.Obj.Velocity = targetDir * GParams.RocketVel;
             this.bomb.Obj.Rotation = GTA.Helper.DirectionToRotation(targetDir, 0f);
-            //this.bomb.Obj.Rotation = new Vector3(this.bomb.Obj.Rotation.X, this.bomb.Obj.Rotation.Y, this.bomb.Obj.Rotation.Z - 90f);
+            
+            // this.bomb.Obj.Rotation = new Vector3(this.bomb.Obj.Rotation.X, this.bomb.Obj.Rotation.Y, this.bomb.Obj.Rotation.Z - 90f);
 
             float speed = this.bomb.Obj.Velocity.Length();
             float distToGround = this.bomb.Obj.Position.Z - this.bomb.Obj.Position.ToGround().Z;
@@ -147,6 +167,6 @@
             {
                 this.state = ERocketState.Done;
             }
-        }        
-	}
+        }   
+    }
 }
