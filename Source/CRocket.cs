@@ -55,6 +55,11 @@ namespace Bombit.Source
         private ERocketState state;
 
         /// <summary>
+        /// Handle to the rocket particle effect.
+        /// </summary>
+        private int ptfxHandle;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="CRocket"/> class.
         /// </summary>
         /// <param name="startPos">The start position.</param>
@@ -81,7 +86,7 @@ namespace Bombit.Source
 
             // Example...
             //START_PTFX_ON_OBJ("ambient_cig_smoke", c.a, 0.125, -0.02, 0.01, 0.0, 0.0, 0.0, 1.1) --+z-y+x
-            GTA.Native.Function.Call("START_PTFX_ON_OBJ", "weap_rocket_player", this.bomb.Obj, 0.125, -0.02, 0.01, 0.0, 0.0, 0.0, 1.1);
+            this.ptfxHandle = GTA.Native.Function.Call<int>("START_PTFX_ON_OBJ", "weap_rocket_player", this.bomb.Obj, 0.125, -0.02, 0.01, 0.0, 0.0, 0.0, 1.1);
 
             this.light = new GTA.Light(System.Drawing.Color.Orange, 15.0f, 80f);
             this.light.Position = this.bomb.Obj.GetOffsetPosition(new Vector3(0f, -2f, 0f));
@@ -115,6 +120,7 @@ namespace Bombit.Source
         /// </summary>
         public void Delete()
         {
+            GTA.Native.Function.Call("REMOVE_PTFX", this.ptfxHandle);
             this.light.Disable();
             this.light = null;
             this.bomb.Delete();
@@ -155,7 +161,7 @@ namespace Bombit.Source
             this.light.Position = this.bomb.Obj.GetOffsetPosition(new Vector3(0f, -2f, 0f));
             this.light.Enabled = true;
 
-            if ((speed < 40.0f || distToGround < 0.05f || distToCam > GParams.RocketMaxDist) && (speed != 0f))
+            if ((speed < 40.0f || distToGround < 0.05f || distToCam > GParams.RocketMaxDist) && (speed != 0f) && (distToGround != 0f))
             {
                 Game.Console.Print("speed: " + speed.ToString() + " dist to ground: " + distToGround.ToString() + " dist to cam: " + distToCam.ToString());
                 this.bomb.Explode();
