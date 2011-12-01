@@ -29,6 +29,21 @@ namespace Bombit.Source
     /// </summary>
     public static class CExtensionMethods
     {
+        public static void SetRecordCollisions(this GTA.Object obj, bool records)
+        {
+            GTA.Native.Function.Call("SET_OBJECT_RECORDS_COLLISIONS", obj, records);
+        }
+
+        public static bool HasCollidedWithAnything(this GTA.Object obj)
+        {
+            return GTA.Native.Function.Call<bool>("HAS_OBJECT_COLLIDED_WITH_ANYTHING", obj);
+        }
+
+        public static int GetHealth(this GTA.Object obj)
+        {
+            return GTA.Native.Function.Call<int>("GET_OBJECT_HEALTH", obj);
+        }
+
         /// <summary>
         /// Gets the angle between two 3D vectors.
         /// </summary>

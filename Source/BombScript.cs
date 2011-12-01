@@ -57,10 +57,15 @@ namespace Bombit.Source
         private EDetonationMethod detMethod = EDetonationMethod.Parallel;
 
         /// <summary>
+        /// The current projectile type.
+        /// </summary>
+        private EProjectileType projType = EProjectileType.Rocket;
+
+        /// <summary>
         /// The rocket spawnable and controllable by the player.
         /// </summary>
         private CRocket rocket;
-
+                
         /// <summary>
         /// Whether the rocket is active at the moment.
         /// </summary>
@@ -125,12 +130,42 @@ namespace Bombit.Source
         /// <param name="e">The <see cref="GTA.KeyEventArgs"/> instance containing the event data.</param>
         private void BombScript_KeyDown(object sender, GTA.KeyEventArgs e)
         {
-            if (e.Key == GParams.RocketStartKey)
+            if (e.Key == GParams.ProjectileChangeKey)
             {
-                if (!this.rocketActive && Game.isGameKeyPressed(GameKey.Aim) && !Player.Character.isInVehicle())
+                switch (this.projType)
                 {
-                    this.rocket = new CRocket(Game.CurrentCamera.Position + Game.CurrentCamera.Direction * 3.0f, Game.CurrentCamera.Direction, this.currentBombType, this.currentExplosionType, 5, 0);
-                    this.rocketActive = true;
+                    case EProjectileType.Rocket:
+                        this.projType = EProjectileType.Grenade;                        
+                        break;
+
+                    case EProjectileType.Grenade:
+                        this.projType = EProjectileType.Rocket;
+
+                        break;
+                }
+
+                Game.DisplayText("Projectile type: " + this.projType.ToString(), 1800);
+            }
+            else if (e.Key == GParams.RocketStartKey)
+            {
+                if (Game.isGameKeyPressed(GameKey.Aim) && !Player.Character.isInVehicle())
+                {
+                    switch (this.projType)
+                    {
+                        case EProjectileType.Rocket:
+                            if (!this.rocketActive)
+                            {
+                                this.rocket = new CRocket(Game.CurrentCamera.Position + Game.CurrentCamera.Direction * 3.0f, Game.CurrentCamera.Direction, this.currentBombType, this.currentExplosionType, 5, 0);
+                                this.rocketActive = true;
+                            }
+
+                            break;
+
+                        case EProjectileType.Grenade:
+                            CGrenade tempGrenade = new CGrenade(Game.CurrentCamera.Position + 1.0f * Game.CurrentCamera.Direction, Game.CurrentCamera.Direction, this.currentBombType, this.currentExplosionType, 5, 0);
+
+                            break;
+                    }
                 }
             }
             else if (e.Key == GParams.BombPlaceKey)

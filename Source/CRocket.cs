@@ -73,7 +73,7 @@ namespace Bombit.Source
             this.bomb = new CBomb(
                                   startPos,
                                   "cj_rpg_rocket",
-                                  bombType,
+                                  EBombType.payload,
                                   exType,
                                   bombTickInterval);
 

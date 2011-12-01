@@ -1,6 +1,5 @@
 audio/
 bin/
 obj/
-*.csproj
 *.user
 *.Cache

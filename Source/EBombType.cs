@@ -36,6 +36,11 @@ namespace Bombit.Source
         /// <summary>
         /// Explodes when a target gets too close.
         /// </summary>
-        proximity
+        proximity,
+
+        /// <summary>
+        /// Payload for a projectile.
+        /// </summary>
+        payload,
     }
 }

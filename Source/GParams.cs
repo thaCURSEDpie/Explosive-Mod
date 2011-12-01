@@ -79,6 +79,11 @@ namespace Bombit.Source
         /// </summary>
         public static Keys ExTypeChangeKey = Keys.F10;
 
+        /// <summary>
+        /// The key used to change between different projectiles.
+        /// </summary>
+        public static Keys ProjectileChangeKey = Keys.F11;
+
         // 10 000 ticks in a ms
         // 10 000 000 ticks in a second
         /// <summary>
